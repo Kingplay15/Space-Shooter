@@ -28,9 +28,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7323593158143209895
 MonoBehaviour:
@@ -48,6 +49,8 @@ MonoBehaviour:
   shootingVolume: 0.4
   getHitClip: {fileID: 8300000, guid: 5bb28abb97aa06a46b54f566102f0975, type: 3}
   getHitVolume: 0.4
+  powerUpClip: {fileID: 8300000, guid: a12383933af4c53499a9eaeecf70ae6e, type: 3}
+  powerUpVolume: 0.5
 --- !u!82 &7323593158143209894
 AudioSource:
   m_ObjectHideFlags: 0

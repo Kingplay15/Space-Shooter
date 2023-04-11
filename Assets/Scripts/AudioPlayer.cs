@@ -12,6 +12,10 @@ public class AudioPlayer : MonoBehaviour
     [SerializeField] AudioClip getHitClip;
     [SerializeField] [Range(0f, 1f)] float getHitVolume = 1f;
 
+    [Header("PowerUp")]
+    [SerializeField] AudioClip powerUpClip;
+    [SerializeField] [Range(0f, 1f)] float powerUpVolume = 1f;
+
     void Awake()
     {
         ManageSingleton();
@@ -33,6 +37,11 @@ public class AudioPlayer : MonoBehaviour
     public void PlayGetHitClip()
     {
         PlayClip(getHitClip, getHitVolume);
+    }
+
+    public void PlayPowerUpClip()
+    {
+        PlayClip(powerUpClip, powerUpVolume);
     }
 
     void PlayClip(AudioClip clip, float volume)

@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3944838736495503011}
   m_RootOrder: 0
@@ -115,6 +116,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1926785923034745500}
   m_Father: {fileID: 0}
@@ -183,6 +185,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20
   hitEffect: {fileID: 1889502533077999547, guid: f8269e4996a3e8743b2bd55afbeb41d2, type: 3}
+  applyCameraShake: 0
+  isPlayer: 0
+  score: 50
+  powerUps:
+  - {fileID: 6729778001371066560, guid: 94d6927851aa8b744a0c22400878710e, type: 3}
 --- !u!114 &-5372782018791230267
 MonoBehaviour:
   m_ObjectHideFlags: 0
