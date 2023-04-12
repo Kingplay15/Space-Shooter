@@ -17,6 +17,14 @@ public class Player : MonoBehaviour
 
     Shooter shooter;
 
+    public bool haveShield { get; set; } = false;
+
+    [SerializeField] Shield shield;
+    public Shield GetShield()
+    {
+        return shield;
+    }
+
     void Awake()
     {
         shooter = GetComponent<Shooter>();

@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class PowerUpStar : PowerUp
 {
-    protected override void GrantPower(Health health)
+    Shield shield;
+
+    protected override bool CheckPowerExist()
     {
-        health.isInvulnerable = true;
+        return player.haveShield;
+    }
+
+    protected override void GrantPower(Player player)
+    {
+        shield = player.GetShield();
+        player.haveShield = true;
+        shield.gameObject.SetActive(true);
     }
 }

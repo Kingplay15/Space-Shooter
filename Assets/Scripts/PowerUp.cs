@@ -5,7 +5,15 @@ using UnityEngine;
 public abstract class PowerUp : MonoBehaviour
 {
     [SerializeField] float droppingSpeed = 5f;
-    protected Health playerHealth;
+    protected Player player;
+    ScoreKeeper scoreKepper;
+    [SerializeField] int score = 100;
+
+    private void Awake()
+    {
+        scoreKepper = FindObjectOfType<ScoreKeeper>();
+    }
+
     public float GetDroppingSpeed()
     {
         return droppingSpeed;
@@ -15,12 +23,24 @@ public abstract class PowerUp : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            playerHealth = collision.gameObject.GetComponent<Health>();
-            GrantPower(playerHealth);
+            player = collision.gameObject.GetComponent<Player>();
+
+            if (CheckPowerExist() == false)
+                GrantPower(player);
+            else AddScore();
+
             Destroy(gameObject);
         }
     }
 
-    protected abstract void GrantPower(Health health);
+    private void AddScore() //Adding score instead of granting the power the player already had
+    {
+        scoreKepper.ModifyScore(score);
+        Debug.Log("Add score");
+    }
+
+    protected abstract bool CheckPowerExist();
+
+    protected abstract void GrantPower(Player player);
 
 }
