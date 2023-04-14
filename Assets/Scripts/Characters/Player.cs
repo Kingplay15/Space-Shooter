@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     Vector2 maxBound;
 
     Shooter shooter;
+    public Shooter.Weapon equippedWeapon { get; set; } = Shooter.Weapon.Normal;
 
     public bool haveShield { get; set; } = false;
 

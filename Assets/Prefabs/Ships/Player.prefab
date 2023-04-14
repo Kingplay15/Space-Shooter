@@ -106,7 +106,7 @@ Transform:
   - {fileID: 789616423132424395}
   - {fileID: 3026116554550778466}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1194962405
 MonoBehaviour:
@@ -224,12 +224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3775307e3be8747982ce526d00240d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 434407732429538195, guid: 41ada983fd348b94ab16352bd04f3430, type: 3}
-  projecttileSpeed: 10
-  projecttileLifetime: 5
-  baseFireRate: 0.2
-  fireRateVariance: 0
-  minFireRate: 0.1
+  projectilePrefabs:
+  - {fileID: 434407732429538195, guid: 41ada983fd348b94ab16352bd04f3430, type: 3}
   useAI: 0
   isFiring: 0
 --- !u!1 &2660097810057670660
