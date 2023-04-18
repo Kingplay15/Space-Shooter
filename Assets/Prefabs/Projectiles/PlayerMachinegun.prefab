@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5392691126781496080}
   - component: {fileID: 6039974067059951853}
   - component: {fileID: 7128114509534293746}
-  m_Layer: 7
-  m_Name: EnemyNormal
+  m_Layer: 6
+  m_Name: PlayerMachinegun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,11 +84,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29eb869d2d3a43f4fbe0acd302531776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  projectileSpeed: 10
+  damage: 10
+  projectileSpeed: 12
   projectileLifetime: 5
-  baseFireRate: 1
-  fireRateVariance: 0.5
+  baseFireRate: 0.2
+  fireRateVariance: 0
   minFireRate: 0.1
 --- !u!1 &5802865830887183473
 GameObject:
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3474790125291860159}
   - component: {fileID: 16779508235615093}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: laserBlue12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 4d5779cd006be9d4f8cd4b59904b235c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bba8dcca146b3024aa91bd5e05913f27, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

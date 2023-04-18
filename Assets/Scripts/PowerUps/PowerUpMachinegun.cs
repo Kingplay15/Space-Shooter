@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpShotgun : PowerUp
+public class PowerUpMachinegun : PowerUp
 {
     Shooter shooterPlayer;
+
     protected override bool CheckPowerExist()
     {
-        return player.equippedWeapon == Shooter.Weapon.Shotgun;
+        return player.equippedWeapon == Shooter.Weapon.Machinegun;
     }
 
     protected override void GrantPower(Player player)
     {
-        player.equippedWeapon = Shooter.Weapon.Shotgun;
+        player.equippedWeapon = Shooter.Weapon.Machinegun;
 
         shooterPlayer = player.gameObject.GetComponent<Shooter>();
         shooterPlayer.ResetWeapon();

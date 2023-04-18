@@ -8,7 +8,8 @@ public class Shooter : MonoBehaviour
     public enum Weapon
     {
         Normal,
-        Shotun
+        Shotgun,
+        Machinegun
     }
 
     [Header("General")]
@@ -17,15 +18,20 @@ public class Shooter : MonoBehaviour
     float projectileLifetime = 5f;
 
     [Header("AI")]
+    [SerializeField] bool useAI = false;
+
+    
+
+    [Header("Player")]
+    [SerializeField] float machineGunPaddingLeft = -0.5f;
+    [SerializeField] float machineGunPaddingRight = 0.5f;
     float baseFireRate = 0.2f;
     float fireRateVariance = 0f;
     float minFireRate = 0.1f;
-    [SerializeField] bool useAI = false;
-
     Coroutine fireCoroutine;
     [HideInInspector] public bool isFiring = false;
     float timeToNextFire = 0f;
-
+    
     AudioPlayer audioPlayer;
     Player player;
 
@@ -55,19 +61,23 @@ public class Shooter : MonoBehaviour
             CheckWeapon();
         }
             
-        //fireCoroutine = StartCoroutine(FireContinuously());
         else if (isFiring == false && fireCoroutine != null)
         {
-            StopCoroutine(fireCoroutine);
-            fireCoroutine = null;
-            StartCoroutine(WaitForNextFire());          
+            ResetWeapon();   
         }
     }
 
-    IEnumerator WaitForNextFire()
+    private IEnumerator WaitForNextFire()
     {
         yield return new WaitForSeconds(timeToNextFire);
         timeToNextFire = 0f;
+    }
+
+    public void ResetWeapon()
+    {
+        StopCoroutine(fireCoroutine);
+        fireCoroutine = null;
+        StartCoroutine(WaitForNextFire());
     }
 
     private void CheckWeapon()
@@ -96,7 +106,7 @@ public class Shooter : MonoBehaviour
                 minFireRate = projectile.GetMinFireRate;
                 fireCoroutine = StartCoroutine(ShootNormal());
                 break;
-            case Weapon.Shotun:
+            case Weapon.Shotgun:
                 projectile = projectilePrefabs[1].GetComponent<DamageDealer>();
                 projectileSpeed = projectile.GetProjecttileSpeed;
                 projectileLifetime = projectile.GetProjectileLifetime;
@@ -104,6 +114,15 @@ public class Shooter : MonoBehaviour
                 fireRateVariance = projectile.GetFireRateVariance;
                 minFireRate = projectile.GetMinFireRate;
                 fireCoroutine = StartCoroutine(ShootShotgun());
+                break;
+            case Weapon.Machinegun:
+                projectile = projectilePrefabs[2].GetComponent<DamageDealer>();
+                projectileSpeed = projectile.GetProjecttileSpeed;
+                projectileLifetime = projectile.GetProjectileLifetime;
+                baseFireRate = projectile.GetBaseFireRate;
+                fireRateVariance = projectile.GetFireRateVariance;
+                minFireRate = projectile.GetMinFireRate;
+                fireCoroutine = StartCoroutine(ShootMachineGun());
                 break;
         }
     }
@@ -161,6 +180,32 @@ public class Shooter : MonoBehaviour
                             break;
                     }
                 }
+                Destroy(projectile, projectileLifetime);
+            }
+
+            timeToNextFire = ShootGeneralSetup();
+            yield return new WaitForSeconds(timeToNextFire);
+            timeToNextFire = 0f;
+        }
+    }
+
+    IEnumerator ShootMachineGun()
+    {
+        while (true)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                GameObject projectile;
+                if (i == 0)
+                    projectile = Instantiate(projectilePrefabs[2],
+                        transform.position + new Vector3(machineGunPaddingLeft, 0), Quaternion.identity);
+                else projectile = Instantiate(projectilePrefabs[2],
+                    transform.position + new Vector3(machineGunPaddingRight, 0), Quaternion.identity);
+
+                Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+                if (rb != null)                
+                    rb.velocity = transform.up * projectileSpeed;                    
+                
                 Destroy(projectile, projectileLifetime);
             }
 

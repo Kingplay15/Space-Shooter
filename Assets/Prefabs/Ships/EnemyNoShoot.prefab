@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 108ef89afa33c6844879eafde41ffd65, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0720c19c6b6f4034aa86891170f74534, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,9 +98,8 @@ GameObject:
   - component: {fileID: 2039345939378816581}
   - component: {fileID: -1042870757527507854}
   - component: {fileID: -5372782018791230267}
-  - component: {fileID: 5147796126577626746}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: EnemyNoShoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -191,7 +190,6 @@ MonoBehaviour:
   powerUps:
   - {fileID: 6729778001371066560, guid: 94d6927851aa8b744a0c22400878710e, type: 3}
   - {fileID: 6729778001371066560, guid: 221e77607b3c03245804acc8b8c4ddab, type: 3}
-  - {fileID: 6729778001371066560, guid: cd0a419ef45df6245941b47c42a0eecc, type: 3}
   isInvulnerable: 0
 --- !u!114 &-5372782018791230267
 MonoBehaviour:
@@ -211,21 +209,3 @@ MonoBehaviour:
   baseFireRate: 0.2
   fireRateVariance: 0
   minFireRate: 0.1
---- !u!114 &5147796126577626746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9065707003169997826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd3775307e3be8747982ce526d00240d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  projectilePrefabs:
-  - {fileID: 434407732429538195, guid: c617f50de3aa19140b79b93aa01bf238, type: 3}
-  useAI: 1
-  machineGunPaddingLeft: -0.5
-  machineGunPaddingRight: 0.5
-  isFiring: 0
