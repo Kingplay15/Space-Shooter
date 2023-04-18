@@ -76,7 +76,7 @@ public class Health : MonoBehaviour
     private void SpawnPowerUp()
     {
         int size = powerUps.Length;
-        int seed = Random.Range(0, size - 1); //For generating a random powerup in the list
+        int seed = Random.Range(0, size); //For generating a random powerup in the list
 
         GameObject powerUp = Instantiate(powerUps[seed], gameObject.transform.position, Quaternion.identity);
         Rigidbody2D rb = powerUp.GetComponent<Rigidbody2D>();

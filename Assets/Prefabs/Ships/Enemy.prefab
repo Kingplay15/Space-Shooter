@@ -190,6 +190,7 @@ MonoBehaviour:
   score: 50
   powerUps:
   - {fileID: 6729778001371066560, guid: 94d6927851aa8b744a0c22400878710e, type: 3}
+  - {fileID: 6729778001371066560, guid: 221e77607b3c03245804acc8b8c4ddab, type: 3}
   isInvulnerable: 0
 --- !u!114 &-5372782018791230267
 MonoBehaviour:
@@ -204,7 +205,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  projectilePrefabs: []
   projectileSpeed: 10
   projectileLifetime: 5
   baseFireRate: 0.2
