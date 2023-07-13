@@ -10,13 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ddc417d123c055349af953ec05620d70, type: 3}
-  m_Name: Wave 0 - No Shoot
+  m_Name: Wave Elite 1 0
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 9065707003169997826, guid: d6b5db5e325732742ac5ca4471b671a9, type: 3}
-  - {fileID: 9065707003169997826, guid: d6b5db5e325732742ac5ca4471b671a9, type: 3}
-  - {fileID: 9065707003169997826, guid: d6b5db5e325732742ac5ca4471b671a9, type: 3}
-  pathPrefab: {fileID: 2981225790538423929, guid: f3bf283a2935d5047b7db8a5b6060579, type: 3}
+  - {fileID: 9065707003169997826, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
+  pathPrefab: {fileID: 7637774955129213778, guid: 68d6dac4a5b9ec7438e22d83af6337ce, type: 3}
   moveSpeed: 5
   timeBetweenSpawn: 1
   spawnTimeVariance: 0.5

@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ddc417d123c055349af953ec05620d70, type: 3}
-  m_Name: Wave 0
+  m_Name: Wave Meteor 2
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 9065707003169997826, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
-  - {fileID: 9065707003169997826, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
-  - {fileID: 9065707003169997826, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
-  pathPrefab: {fileID: 5072063347392943944, guid: a06e52624b4c63749a69c17bd5b50fdc, type: 3}
-  moveSpeed: 5
-  timeBetweenSpawn: 1
-  spawnTimeVariance: 0.5
+  pathPrefab: {fileID: 8767667553460967974, guid: 2137e4fcba622bb488be1625aaf07364, type: 3}
+  moveSpeed: 15
+  timeBetweenSpawn: 0.7
+  spawnTimeVariance: 0
   minSpawnTime: 0.2
