@@ -75,7 +75,8 @@ public class Shooter : MonoBehaviour
 
     public void ResetWeapon()
     {
-        StopCoroutine(fireCoroutine);
+        if (fireCoroutine != null) 
+            StopCoroutine(fireCoroutine);
         fireCoroutine = null;
         StartCoroutine(WaitForNextFire());
     }
