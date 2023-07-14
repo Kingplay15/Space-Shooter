@@ -52,5 +52,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c2730e456c5c4ac4db4978f3a0123f19, type: 2}
   - {fileID: 11400000, guid: d9349e066f564da40a9204802f575dd6, type: 2}
   - {fileID: 11400000, guid: 9147abf00cc8676489a6db37f26a36d6, type: 2}
+  - {fileID: 11400000, guid: 532d9d91a7f02cd43a23513e106362f7, type: 2}
+  - {fileID: 11400000, guid: 3bb3b8de0e94174429e4062c31535809, type: 2}
+  - {fileID: 11400000, guid: f041dedff3413314bbdfeecbd1adb34a, type: 2}
   timeBetweenWaves: 0
-  isLooping: 0
+  isLooping: 1

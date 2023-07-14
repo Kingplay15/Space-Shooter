@@ -9,7 +9,9 @@ public class Shooter : MonoBehaviour
     {
         Normal,
         Shotgun,
-        Machinegun
+        Machinegun,
+        Aiminggun,
+        MiniShotgun
     }
 
     [Header("General")]
@@ -19,7 +21,7 @@ public class Shooter : MonoBehaviour
 
     [Header("AI")]
     [SerializeField] bool useAI = false;
-
+    [SerializeField] Weapon aIWeapon;
     
 
     [Header("Player")]
@@ -38,7 +40,9 @@ public class Shooter : MonoBehaviour
     void Awake()
     {
         audioPlayer = FindObjectOfType<AudioPlayer>();
-        player = GetComponent<Player>();
+        if (useAI)
+            player = FindObjectOfType<Player>();
+        else player = GetComponent<Player>();
     }
 
     // Start is called before the first frame update
@@ -81,18 +85,34 @@ public class Shooter : MonoBehaviour
         StartCoroutine(WaitForNextFire());
     }
 
+    private void FireStatsSetUp(DamageDealer projectile)
+    {
+        projectileSpeed = projectile.GetProjecttileSpeed;
+        projectileLifetime = projectile.GetProjectileLifetime;
+        baseFireRate = projectile.GetBaseFireRate;
+        fireRateVariance = projectile.GetFireRateVariance;
+        minFireRate = projectile.GetMinFireRate;
+    }
+
     private void CheckWeapon()
     {
         DamageDealer projectile;
-        if (player == null) //If this is a enemy
+        if (useAI) //If this is an enemy
         {
             projectile = projectilePrefabs[0].GetComponent<DamageDealer>();
-            projectileSpeed = projectile.GetProjecttileSpeed;
-            projectileLifetime = projectile.GetProjectileLifetime;
-            baseFireRate = projectile.GetBaseFireRate;
-            fireRateVariance = projectile.GetFireRateVariance;
-            minFireRate = projectile.GetMinFireRate;
-            fireCoroutine = StartCoroutine(ShootNormal());
+            FireStatsSetUp(projectile);
+            switch(aIWeapon)
+            {
+                case Weapon.Normal:
+                    fireCoroutine = StartCoroutine(ShootNormal());
+                    return;
+                case Weapon.Aiminggun:
+                    fireCoroutine = StartCoroutine(ShootAiminggun());
+                    return;
+                case Weapon.MiniShotgun:
+                    fireCoroutine = StartCoroutine(ShootMiniShotgun());
+                    return;
+            }            
             return;
         }
 
@@ -100,29 +120,17 @@ public class Shooter : MonoBehaviour
         {
             case Weapon.Normal:
                 projectile = projectilePrefabs[0].GetComponent<DamageDealer>();
-                projectileSpeed = projectile.GetProjecttileSpeed;
-                projectileLifetime = projectile.GetProjectileLifetime;
-                baseFireRate = projectile.GetBaseFireRate;
-                fireRateVariance = projectile.GetFireRateVariance;
-                minFireRate = projectile.GetMinFireRate;
+                FireStatsSetUp(projectile);
                 fireCoroutine = StartCoroutine(ShootNormal());
                 break;
             case Weapon.Shotgun:
                 projectile = projectilePrefabs[1].GetComponent<DamageDealer>();
-                projectileSpeed = projectile.GetProjecttileSpeed;
-                projectileLifetime = projectile.GetProjectileLifetime;
-                baseFireRate = projectile.GetBaseFireRate;
-                fireRateVariance = projectile.GetFireRateVariance;
-                minFireRate = projectile.GetMinFireRate;
+                FireStatsSetUp(projectile);
                 fireCoroutine = StartCoroutine(ShootShotgun());
                 break;
             case Weapon.Machinegun:
                 projectile = projectilePrefabs[2].GetComponent<DamageDealer>();
-                projectileSpeed = projectile.GetProjecttileSpeed;
-                projectileLifetime = projectile.GetProjectileLifetime;
-                baseFireRate = projectile.GetBaseFireRate;
-                fireRateVariance = projectile.GetFireRateVariance;
-                minFireRate = projectile.GetMinFireRate;
+                FireStatsSetUp(projectile);
                 fireCoroutine = StartCoroutine(ShootMachineGun());
                 break;
         }
@@ -164,7 +172,7 @@ public class Shooter : MonoBehaviour
                 {                    
                     switch (i) 
                     {
-                        case 0: //30 degree to the left, magnitude = 1
+                        case 0: //30 degree to the left upward, magnitude = 1
                             rb.velocity = new Vector3(-0.5f, 0.87f) * projectileSpeed; //0.5f = cos(60 degree), 0.87f = cos(30 degree) approximately
                             break;
                         case 1: //15 degree to the left
@@ -207,6 +215,56 @@ public class Shooter : MonoBehaviour
                 if (rb != null)                
                     rb.velocity = transform.up * projectileSpeed;                    
                 
+                Destroy(projectile, projectileLifetime);
+            }
+
+            timeToNextFire = ShootGeneralSetup();
+            yield return new WaitForSeconds(timeToNextFire);
+            timeToNextFire = 0f;
+        }
+    }
+
+    private IEnumerator ShootAiminggun() //Shoot a projectile at the target's position
+    {
+        while (true)
+        {
+            GameObject projectile = Instantiate(projectilePrefabs[0], transform.position, Quaternion.identity);
+            Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+            Vector3 targetPos = new Vector3();
+            if (useAI)
+                targetPos = player.gameObject.transform.position;
+            if (rb != null)
+                rb.velocity = (targetPos - transform.position).normalized * projectileSpeed;
+
+            timeToNextFire = ShootGeneralSetup();
+            Destroy(projectile, projectileLifetime);
+            yield return new WaitForSeconds(timeToNextFire);
+        }
+    }
+
+    private IEnumerator ShootMiniShotgun()
+    {
+        while (true)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                GameObject projectile = Instantiate(projectilePrefabs[0], transform.position, Quaternion.identity);
+                Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
+                if (rb != null)
+                {
+                    switch (i)
+                    {
+                        case 0: //30 degree to the left downward, magnitude = 1
+                            rb.velocity = new Vector3(-0.5f, -0.87f) * projectileSpeed; //0.5f = cos(60 degree), 0.87f = cos(30 degree) approximately
+                            break;
+                        case 1: //straight down
+                            rb.velocity = new Vector3(0, -1) * projectileSpeed;
+                            break;
+                        case 2: //30 degree to the right
+                            rb.velocity = new Vector3(0.5f, -0.87f) * projectileSpeed;
+                            break;
+                    }
+                }
                 Destroy(projectile, projectileLifetime);
             }
 

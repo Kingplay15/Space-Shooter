@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wave Meteor 8
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 9065707003169997826, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
+  - {fileID: 7059636387360124797, guid: cca51a6177ad08b45828809a7ab68bd5, type: 3}
   pathPrefab: {fileID: 8767667553460967974, guid: 7e9813194724a54459aa868b17e17e84, type: 3}
   moveSpeed: 15
   timeBetweenSpawn: 0.7

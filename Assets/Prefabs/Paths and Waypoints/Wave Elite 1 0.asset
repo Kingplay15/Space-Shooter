@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wave Elite 1 0
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 9065707003169997826, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
+  - {fileID: 5584612391730384950, guid: c4cdcc6cec99ae9479a78a5c3e6cbe1e, type: 3}
   pathPrefab: {fileID: 7637774955129213778, guid: 68d6dac4a5b9ec7438e22d83af6337ce, type: 3}
   moveSpeed: 5
   timeBetweenSpawn: 1

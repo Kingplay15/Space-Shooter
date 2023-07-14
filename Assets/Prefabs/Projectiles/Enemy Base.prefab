@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6039974067059951853}
   - component: {fileID: 7128114509534293746}
   m_Layer: 7
-  m_Name: EnemyNormal
+  m_Name: Enemy Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 3474790125291860159}
   - component: {fileID: 16779508235615093}
   m_Layer: 7
-  m_Name: laserBlue12
+  m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

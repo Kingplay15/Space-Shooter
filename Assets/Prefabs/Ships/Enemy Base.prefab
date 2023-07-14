@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: -5372782018791230267}
   - component: {fileID: 5147796126577626746}
   m_Layer: 7
-  m_Name: Enemy
+  m_Name: Enemy Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,7 +168,7 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.0071665943}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.39250067
 --- !u!114 &-1042870757527507854
@@ -226,6 +226,7 @@ MonoBehaviour:
   projectilePrefabs:
   - {fileID: 434407732429538195, guid: c617f50de3aa19140b79b93aa01bf238, type: 3}
   useAI: 1
+  aIWeapon: 0
   machineGunPaddingLeft: -0.5
   machineGunPaddingRight: 0.5
   isFiring: 0
