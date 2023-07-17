@@ -5,11 +5,11 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] List<WaveConfig> waveConfigs;
-    [SerializeField] float timeBetweenWaves = 3f;
     WaveConfig currentWave;
     public WaveConfig GetCurrentWave() => currentWave;
 
     [SerializeField] bool isLooping = false;
+    [SerializeField] private int startWaveIndex = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -27,17 +27,17 @@ public class EnemySpawner : MonoBehaviour
     {
         do
         {
-            foreach (WaveConfig wave in waveConfigs)
+            for (int i = startWaveIndex; i < waveConfigs.Count; i++) 
             {
-                currentWave = wave;
-                for (int i = 0; i < currentWave.GetEnemyCount(); i++)
+                currentWave = waveConfigs[i];
+                for (int j = 0; j < currentWave.GetEnemyCount(); j++)
                 {
-                    Instantiate(currentWave.GetEnemyPrefab(i),
+                    Instantiate(currentWave.GetEnemyPrefab(j),
                         currentWave.GetStartingWaypoint().position, Quaternion.Euler(0, 0, 180), transform);
                     yield return new WaitForSeconds(currentWave.GetSpawnTime());
                 }
-                yield return new WaitForSeconds(timeBetweenWaves);
+                yield return new WaitForSeconds(currentWave.GetWaitForNextWave());
             }
-        } while (isLooping == true);                       
+        } while (isLooping == true);                    
     }
 }

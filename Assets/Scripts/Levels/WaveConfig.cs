@@ -13,6 +13,9 @@ public class WaveConfig : ScriptableObject
     [SerializeField] float spawnTimeVariance = 0f;
     [SerializeField] float minSpawnTime = 0.2f;
 
+    [SerializeField] private float waitForNextWave = 1f;
+    public float GetWaitForNextWave() => waitForNextWave;
+
     public Transform GetStartingWaypoint()
     {
         return pathPrefab.GetChild(0);

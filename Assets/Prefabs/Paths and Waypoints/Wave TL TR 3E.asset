@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ddc417d123c055349af953ec05620d70, type: 3}
-  m_Name: Wave 0 Left
+  m_Name: Wave TL TR 3E
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 9065707003169997826, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
   - {fileID: 9065707003169997826, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
   - {fileID: 9065707003169997826, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
-  pathPrefab: {fileID: 7137559292067006783, guid: c41ddad64f0808a41a956f8a34b7da09, type: 3}
+  pathPrefab: {fileID: 1054509044081697939, guid: 01ccedfd945fb3a46a507b3d2d33a073, type: 3}
   moveSpeed: 5
-  timeBetweenSpawn: 1
-  spawnTimeVariance: 0.5
+  timeBetweenSpawn: 0.2
+  spawnTimeVariance: 0.01
   minSpawnTime: 0.2
+  waitForNextWave: 1
