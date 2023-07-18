@@ -12,8 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] float paddingRight;
     [SerializeField] float paddingTop;
     [SerializeField] float paddingBottom;
-    Vector2 minBound;
-    Vector2 maxBound;
+
 
     Shooter shooter;
     public Shooter.Weapon equippedWeapon { get; set; } = Shooter.Weapon.Normal;
@@ -37,7 +36,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InitBounds();
+        
     }
 
     // Update is called once per frame
@@ -46,19 +45,14 @@ public class Player : MonoBehaviour
         Move();
     }
 
-    void InitBounds()
-    {
-        Camera mainCam = Camera.main;
-        minBound = mainCam.ViewportToWorldPoint(new Vector2(0, 0));
-        maxBound = mainCam.ViewportToWorldPoint(new Vector2(1, 1));
-    }
-
     void Move()
     {
         Vector2 delta = rawInput * speed * Time.deltaTime;
         Vector2 newPos = new Vector2();
-        newPos.x = Mathf.Clamp(transform.position.x + delta.x, minBound.x + paddingLeft, maxBound.x - paddingRight);
-        newPos.y = Mathf.Clamp(transform.position.y + delta.y, minBound.y + paddingBottom, maxBound.y - paddingTop);
+        newPos.x = Mathf.Clamp(transform.position.x + delta.x, GeneralData.minBound.x + 
+            paddingLeft, GeneralData.maxBound.x - paddingRight);
+        newPos.y = Mathf.Clamp(transform.position.y + delta.y, GeneralData.minBound.y + 
+            paddingBottom, GeneralData.maxBound.y - paddingTop);
         transform.position = newPos;
     }
 

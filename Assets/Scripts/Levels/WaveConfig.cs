@@ -21,6 +21,11 @@ public class WaveConfig : ScriptableObject
         return pathPrefab.GetChild(0);
     }
 
+    public Transform GetLastWaypoint()
+    {
+        return pathPrefab.GetChild(pathPrefab.childCount - 1);
+    }
+
     public IList<Transform> GetWaypoints()
     {
         IList<Transform> waypoints = new List<Transform>();

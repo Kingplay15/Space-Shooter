@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: Wave BL BR Alt
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 9065707003169997826, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
+  - {fileID: 5572942454830047290, guid: 256b1d94804c22f4983cff1fbe410610, type: 3}
+  - {fileID: 5572942454830047290, guid: 256b1d94804c22f4983cff1fbe410610, type: 3}
+  - {fileID: 5572942454830047290, guid: 256b1d94804c22f4983cff1fbe410610, type: 3}
   pathPrefab: {fileID: 3091465967658016821, guid: f0d38bb6d512d4d4c980d08ba0479001, type: 3}
   moveSpeed: 5
   timeBetweenSpawn: 1
   spawnTimeVariance: 0.5
   minSpawnTime: 0.2
+  waitForNextWave: 3

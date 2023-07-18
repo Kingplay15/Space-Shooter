@@ -21,4 +21,4 @@ MonoBehaviour:
   timeBetweenSpawn: 1
   spawnTimeVariance: 0.5
   minSpawnTime: 0.2
-  waitForNextWave: 3
+  waitForNextWave: 5

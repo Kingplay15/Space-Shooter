@@ -22,7 +22,7 @@ public class Shooter : MonoBehaviour
     [Header("AI")]
     [SerializeField] bool useAI = false;
     [SerializeField] Weapon aIWeapon;
-    
+
 
     [Header("Player")]
     [SerializeField] float machineGunPaddingLeft = -0.5f;
@@ -33,7 +33,7 @@ public class Shooter : MonoBehaviour
     Coroutine fireCoroutine;
     [HideInInspector] public bool isFiring = false;
     float timeToNextFire = 0f;
-    
+
     AudioPlayer audioPlayer;
     Player player;
 
@@ -48,26 +48,51 @@ public class Shooter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (useAI == true)
-            isFiring = true;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        //The enemies are not allowed to shoot offscreen
+        if (useAI)
+        {
+            if (IsOnScreen())
+            {
+                timeToNextFire = 0f;
+                isFiring = true;
+            }
+            else
+            {
+                isFiring = false;
+                if (fireCoroutine != null)
+                {
+                    StopCoroutine(fireCoroutine);
+                    fireCoroutine = null; 
+                }
+            }
+        }
+
         Fire();
+    }
+
+    //The object is visible on the camera
+    private bool IsOnScreen()
+    {
+        return !(gameObject.transform.position.x < GeneralData.minBound.x || gameObject.transform.position.x > GeneralData.maxBound.x ||
+            gameObject.transform.position.y < GeneralData.minBound.y || gameObject.transform.position.y > GeneralData.maxBound.y);
     }
 
     void Fire()
     {
-        if (isFiring == true && fireCoroutine == null && timeToNextFire == 0f) 
+        if (isFiring == true && fireCoroutine == null && timeToNextFire == 0f)
         {
             CheckWeapon();
         }
-            
+
         else if (isFiring == false && fireCoroutine != null)
         {
-            ResetWeapon();   
+            ResetWeapon();
         }
     }
 
@@ -79,7 +104,7 @@ public class Shooter : MonoBehaviour
 
     public void ResetWeapon()
     {
-        if (fireCoroutine != null) 
+        if (fireCoroutine != null)
             StopCoroutine(fireCoroutine);
         fireCoroutine = null;
         StartCoroutine(WaitForNextFire());
@@ -101,7 +126,7 @@ public class Shooter : MonoBehaviour
         {
             projectile = projectilePrefabs[0].GetComponent<DamageDealer>();
             FireStatsSetUp(projectile);
-            switch(aIWeapon)
+            switch (aIWeapon)
             {
                 case Weapon.Normal:
                     fireCoroutine = StartCoroutine(ShootNormal());
@@ -112,7 +137,7 @@ public class Shooter : MonoBehaviour
                 case Weapon.MiniShotgun:
                     fireCoroutine = StartCoroutine(ShootMiniShotgun());
                     return;
-            }            
+            }
             return;
         }
 
@@ -154,10 +179,10 @@ public class Shooter : MonoBehaviour
             if (rb != null)
                 rb.velocity = transform.up * projectileSpeed;
 
-            timeToNextFire = ShootGeneralSetup();           
+            timeToNextFire = ShootGeneralSetup();
             Destroy(projectile, projectileLifetime);
             yield return new WaitForSeconds(timeToNextFire);
-        }       
+        }
     }
 
     IEnumerator ShootShotgun()
@@ -169,8 +194,8 @@ public class Shooter : MonoBehaviour
                 GameObject projectile = Instantiate(projectilePrefabs[1], transform.position, Quaternion.identity);
                 Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
                 if (rb != null)
-                {                    
-                    switch (i) 
+                {
+                    switch (i)
                     {
                         case 0: //30 degree to the left upward, magnitude = 1
                             rb.velocity = new Vector3(-0.5f, 0.87f) * projectileSpeed; //0.5f = cos(60 degree), 0.87f = cos(30 degree) approximately
@@ -212,9 +237,9 @@ public class Shooter : MonoBehaviour
                     transform.position + new Vector3(machineGunPaddingRight, 0), Quaternion.identity);
 
                 Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
-                if (rb != null)                
-                    rb.velocity = transform.up * projectileSpeed;                    
-                
+                if (rb != null)
+                    rb.velocity = transform.up * projectileSpeed;
+
                 Destroy(projectile, projectileLifetime);
             }
 

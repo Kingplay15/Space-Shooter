@@ -10,15 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ddc417d123c055349af953ec05620d70, type: 3}
-  m_Name: Wave BR BL Alt
+  m_Name: Wave Elite 1
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 5572942454830047290, guid: 256b1d94804c22f4983cff1fbe410610, type: 3}
-  - {fileID: 5572942454830047290, guid: 256b1d94804c22f4983cff1fbe410610, type: 3}
-  - {fileID: 5572942454830047290, guid: 256b1d94804c22f4983cff1fbe410610, type: 3}
-  pathPrefab: {fileID: 987420184782348198, guid: 07a59420103445f439cd7698cb6f476e, type: 3}
+  - {fileID: 5584612391730384950, guid: c4cdcc6cec99ae9479a78a5c3e6cbe1e, type: 3}
+  pathPrefab: {fileID: 7637774955129213778, guid: 68d6dac4a5b9ec7438e22d83af6337ce, type: 3}
   moveSpeed: 5
   timeBetweenSpawn: 1
   spawnTimeVariance: 0.5
   minSpawnTime: 0.2
-  waitForNextWave: 5
