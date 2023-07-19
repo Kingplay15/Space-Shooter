@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4062398585538265690}
   - component: {fileID: 4062398585538265689}
   m_Layer: 0
-  m_Name: EnemySpawner
+  m_Name: EnemySpawner Backup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,4 +69,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3bb3b8de0e94174429e4062c31535809, type: 2}
   - {fileID: 11400000, guid: f041dedff3413314bbdfeecbd1adb34a, type: 2}
   isLooping: 0
-  startWaveIndex: 12
+  startWaveIndex: 11

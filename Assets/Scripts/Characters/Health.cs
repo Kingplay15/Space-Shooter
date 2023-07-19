@@ -42,9 +42,10 @@ public class Health : MonoBehaviour
             PlayHitEffect();
             PlayGetHitSound();
             ShakeCamera();
-            damageDealer.GetHit();
+            if (damageDealer.GetIsProjectile())
+                damageDealer.GetDestroyed();
         }
-        if (isPlayer == true)
+        if (isPlayer)
         {
             PowerUp powerUp = collision.GetComponent<PowerUp>();
             if (powerUp != null)
@@ -73,12 +74,14 @@ public class Health : MonoBehaviour
 
         else levelManager.LoadGameOver();
         Destroy(gameObject);
-
     }
 
     private void SpawnPowerUp()
     {
         int size = powerUps.Length;
+        if (size == 0)
+            return;
+
         int seed = UnityEngine.Random.Range(0, size); //For generating a random powerup in the list
 
         GameObject powerUp = Instantiate(powerUps[seed], gameObject.transform.position, Quaternion.identity);

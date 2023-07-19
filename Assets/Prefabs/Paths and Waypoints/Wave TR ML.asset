@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: Wave TR ML
   m_EditorClassIdentifier: 
   enemyPrefabs:
-  - {fileID: 9065707003169997826, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
-  - {fileID: 9065707003169997826, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
-  - {fileID: 9065707003169997826, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
+  - {fileID: 2798021480909989624, guid: e56d21f5a8159dd49bc93a6457843963, type: 3}
+  - {fileID: 2798021480909989624, guid: e56d21f5a8159dd49bc93a6457843963, type: 3}
+  - {fileID: 2798021480909989624, guid: e56d21f5a8159dd49bc93a6457843963, type: 3}
+  - {fileID: 2798021480909989624, guid: e56d21f5a8159dd49bc93a6457843963, type: 3}
+  - {fileID: 2798021480909989624, guid: e56d21f5a8159dd49bc93a6457843963, type: 3}
+  - {fileID: 2798021480909989624, guid: e56d21f5a8159dd49bc93a6457843963, type: 3}
   pathPrefab: {fileID: 6514647498113291364, guid: 58463af7434de1a4ba1af0e03d74f592, type: 3}
   moveSpeed: 5
   timeBetweenSpawn: 1
   spawnTimeVariance: 0.5
   minSpawnTime: 0.2
+  waitForNextWave: 3

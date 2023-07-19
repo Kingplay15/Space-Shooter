@@ -90,6 +90,7 @@ MonoBehaviour:
   baseFireRate: 0.5
   fireRateVariance: 0
   minFireRate: 0.1
+  isProjectile: 1
 --- !u!1 &5802865830887183473
 GameObject:
   m_ObjectHideFlags: 0

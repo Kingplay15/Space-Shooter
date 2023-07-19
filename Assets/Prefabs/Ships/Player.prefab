@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: -3543279470749515149}
   - component: {fileID: -4830515433296478418}
   - component: {fileID: 4055225172586042365}
+  - component: {fileID: -6005435990739608662}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -229,9 +230,29 @@ MonoBehaviour:
   - {fileID: 434407732429538195, guid: 3567a181221f5de4b8890a6860dfaba4, type: 3}
   - {fileID: 434407732429538195, guid: 8dde3546a5cd7b7498032938f045ccc9, type: 3}
   useAI: 0
+  aIWeapon: 0
   machineGunPaddingLeft: -0.5
   machineGunPaddingRight: 0.5
   isFiring: 0
+--- !u!114 &-6005435990739608662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900421669182203418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29eb869d2d3a43f4fbe0acd302531776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 100
+  projectileSpeed: 10
+  projectileLifetime: 5
+  baseFireRate: 0.2
+  fireRateVariance: 0
+  minFireRate: 0.1
+  isProjectile: 0
 --- !u!1 &2660097810057670660
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,20 +5,28 @@ using UnityEngine;
 public class DamageDealer : MonoBehaviour
 {
     [SerializeField] int damage = 10;
+
     [SerializeField] float projectileSpeed = 10f;
     public float GetProjecttileSpeed => projectileSpeed;
+
     [SerializeField] float projectileLifetime = 5f;
     public float GetProjectileLifetime => projectileLifetime;
+
     [SerializeField] float baseFireRate = 0.2f;
     public float GetBaseFireRate => baseFireRate;
+
     [SerializeField] float fireRateVariance = 0f;
     public float GetFireRateVariance => fireRateVariance;
+
     [SerializeField] float minFireRate = 0.1f;
     public float GetMinFireRate => minFireRate;
 
+    [SerializeField] private bool isProjectile = false;
+    public bool GetIsProjectile() => isProjectile;
+
     public int GetDamage() => damage;
 
-    public void GetHit()
+    public void GetDestroyed()
     {
         Destroy(gameObject);
     }
