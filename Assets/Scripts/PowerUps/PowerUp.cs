@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class PowerUp : MonoBehaviour
 {
     [SerializeField] float droppingSpeed = 5f;
+    [SerializeField] private float lifeTime = 10f;
     protected Player player;
     ScoreKeeper scoreKepper;
     [SerializeField] int score = 100;
@@ -12,6 +13,17 @@ public abstract class PowerUp : MonoBehaviour
     private void Awake()
     {
         scoreKepper = FindObjectOfType<ScoreKeeper>();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(GetDestroyedAfterLifetime());
+    }
+
+    private IEnumerator GetDestroyedAfterLifetime()
+    {
+        yield return new WaitForSeconds(lifeTime);
+        Destroy(gameObject);
     }
 
     public float GetDroppingSpeed()
