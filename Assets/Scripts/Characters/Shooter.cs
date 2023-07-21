@@ -253,6 +253,8 @@ public class Shooter : MonoBehaviour
     {
         while (true)
         {
+            if (player == null)
+                yield break;
             GameObject projectile = Instantiate(projectilePrefabs[0], transform.position, Quaternion.identity);
             Rigidbody2D rb = projectile.GetComponent<Rigidbody2D>();
             Vector3 targetPos = new Vector3();

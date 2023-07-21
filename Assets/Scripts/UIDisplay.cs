@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,12 +24,19 @@ public class UIDisplay : MonoBehaviour
     void Start()
     {
         healthSlider.maxValue = playerHealth.GetHealth();
+        healthSlider.value = healthSlider.maxValue;
+        playerHealth.OnHealthChangeEvent += Health_Change;
+
+        scoreKeeper.OnScoreChangeEvent += Score_Change;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Health_Change(object sender, EventArgs e)
     {
         healthSlider.value = playerHealth.GetHealth();
+    }
+
+    private void Score_Change(object sender, EventArgs e)
+    {
         scoreText.text = scoreKeeper.score.ToString("000000");
     }
 }

@@ -189,9 +189,9 @@ MonoBehaviour:
   isPlayer: 0
   score: 50
   powerUps:
-  - {fileID: 6729778001371066560, guid: 94d6927851aa8b744a0c22400878710e, type: 3}
-  - {fileID: 6729778001371066560, guid: 221e77607b3c03245804acc8b8c4ddab, type: 3}
-  - {fileID: 6729778001371066560, guid: cd0a419ef45df6245941b47c42a0eecc, type: 3}
+  - {fileID: 722766649463302716, guid: 6c8ce3ffb17d8124d8a204c407c926d6, type: 3}
+  - {fileID: 7160350716581086130, guid: 2a0157eff5807ee4c869f5ee4330130c, type: 3}
+  - {fileID: 4386538499911049208, guid: c7561face1358ee449fe634720961562, type: 3}
   isInvulnerable: 0
 --- !u!114 &-5372782018791230267
 MonoBehaviour:
@@ -211,6 +211,7 @@ MonoBehaviour:
   baseFireRate: 0.2
   fireRateVariance: 0
   minFireRate: 0.1
+  isProjectile: 0
 --- !u!114 &5147796126577626746
 MonoBehaviour:
   m_ObjectHideFlags: 0

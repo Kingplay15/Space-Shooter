@@ -6,7 +6,11 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [Header("General")]
-    [SerializeField] int health = 20;
+    [SerializeField] int health = 50;
+    private int startingHealth = 50;
+    public bool isAtMaxHealth { get; private set; } = true;
+    public EventHandler OnHealthChangeEvent;
+
     public int GetHealth() => health;
     [SerializeField] ParticleSystem hitEffect;
     [SerializeField] bool applyCameraShake = false;
@@ -16,8 +20,9 @@ public class Health : MonoBehaviour
     LevelManager levelManager;
 
     [Header("Enemy")]
-    [SerializeField] bool isPlayer = false;
-    [SerializeField] int score = 50;
+    [SerializeField] private bool isPlayer = false;
+    [SerializeField] private int score = 50;
+    [SerializeField] private int hasPowerUpChance = 100;
     ScoreKeeper scoreKeeper;
     [SerializeField] GameObject[] powerUps;
     public static EventHandler OnDeathEvent;
@@ -30,6 +35,11 @@ public class Health : MonoBehaviour
         audioPlayer = FindObjectOfType<AudioPlayer>();
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
         levelManager = FindObjectOfType<LevelManager>();
+    }
+
+    private void Start()
+    {
+        startingHealth = GetHealth();
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -55,12 +65,19 @@ public class Health : MonoBehaviour
 
     void TakeDamage(int damage)
     {
-        if (isInvulnerable == false) 
-            health -= damage;
+        if (isInvulnerable == false)
+            ChangeHealth(-damage);
         if (health <= 0)
         {
             Die();
         }
+    }
+
+    public void ChangeHealth(int val)
+    {
+        health += val;
+        isAtMaxHealth = health == startingHealth;
+        OnHealthChangeEvent?.Invoke(this, EventArgs.Empty);
     }
 
     void Die()
@@ -80,6 +97,10 @@ public class Health : MonoBehaviour
     {
         int size = powerUps.Length;
         if (size == 0)
+            return;
+
+        int chanceSeed = UnityEngine.Random.Range(1, 101); //Every enemy has a certain chance to spawn a Powerup
+        if (chanceSeed > hasPowerUpChance)
             return;
 
         int seed = UnityEngine.Random.Range(0, size); //For generating a random powerup in the list

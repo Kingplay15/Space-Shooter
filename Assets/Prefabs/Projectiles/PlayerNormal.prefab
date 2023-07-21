@@ -85,9 +85,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  projectileSpeed: 10
+  projectileSpeed: 12
   projectileLifetime: 5
-  baseFireRate: 0.5
+  baseFireRate: 0.3
   fireRateVariance: 0
   minFireRate: 0.1
   isProjectile: 1

@@ -84,10 +84,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29eb869d2d3a43f4fbe0acd302531776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
-  projectileSpeed: 7
+  damage: 15
+  projectileSpeed: 10
   projectileLifetime: 5
-  baseFireRate: 0.7
+  baseFireRate: 0.5
   fireRateVariance: 0
   minFireRate: 0.1
   isProjectile: 1

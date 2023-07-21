@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 4364588473871439514, guid: 65418e60e9a41284bab2c15e4063f6a8, type: 3}
+      propertyPath: damage
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364588473871439514, guid: 65418e60e9a41284bab2c15e4063f6a8, type: 3}
       propertyPath: baseFireRate
       value: 0.5
       objectReference: {fileID: 0}
@@ -62,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6375223440653368315, guid: 65418e60e9a41284bab2c15e4063f6a8, type: 3}
       propertyPath: m_Name
-      value: Enemy Aiming Variant Fast
+      value: Enemy Aiming Fast
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

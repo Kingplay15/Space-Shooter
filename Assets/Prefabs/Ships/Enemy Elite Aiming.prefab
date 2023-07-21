@@ -20,6 +20,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 23db1fd1e0349244da3785b095aede64, type: 3}
+    - target: {fileID: 3952492041456220406, guid: 5b1bcc8af41c93a4480c59d6c99e0916, type: 3}
+      propertyPath: score
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3952492041456220406, guid: 5b1bcc8af41c93a4480c59d6c99e0916, type: 3}
+      propertyPath: health
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 4220774987047915654, guid: 5b1bcc8af41c93a4480c59d6c99e0916, type: 3}
       propertyPath: m_Name
       value: Enemy Elite Aiming
@@ -67,6 +75,10 @@ PrefabInstance:
     - target: {fileID: 8206132390631027239, guid: 5b1bcc8af41c93a4480c59d6c99e0916, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227200449228824641, guid: 5b1bcc8af41c93a4480c59d6c99e0916, type: 3}
+      propertyPath: damage
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

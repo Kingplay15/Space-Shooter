@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -5372782018791230267, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
+      propertyPath: damage
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -1042870757527507854, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
+      propertyPath: score
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -1042870757527507854, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
+      propertyPath: health
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 1926785923034745500, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.5
