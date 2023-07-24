@@ -31,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7323593158143209895
 MonoBehaviour:
@@ -48,7 +48,7 @@ MonoBehaviour:
   shootingClip: {fileID: 8300000, guid: f015d4eaaa9a3c44db570e7dc0889b41, type: 3}
   shootingVolume: 0.4
   getHitClip: {fileID: 8300000, guid: 5bb28abb97aa06a46b54f566102f0975, type: 3}
-  getHitVolume: 0.4
+  getHitVolume: 0.8
   powerUpClip: {fileID: 8300000, guid: a12383933af4c53499a9eaeecf70ae6e, type: 3}
   powerUpVolume: 0.5
 --- !u!82 &7323593158143209894
@@ -63,9 +63,9 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 705c036067b3dda4bb436979404c881f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

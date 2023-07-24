@@ -28,9 +28,6 @@ public class Player : MonoBehaviour
     void Awake()
     {
         shooter = GetComponent<Shooter>();
-
-        //todo: Remove this
-        //equippedWeapon = Shooter.Weapon.Machinegun;
     }
 
     // Start is called before the first frame update

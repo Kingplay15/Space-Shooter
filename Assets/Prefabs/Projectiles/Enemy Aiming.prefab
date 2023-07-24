@@ -62,7 +62,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7128114509534293746, guid: c617f50de3aa19140b79b93aa01bf238, type: 3}
       propertyPath: damage
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7128114509534293746, guid: c617f50de3aa19140b79b93aa01bf238, type: 3}
+      propertyPath: baseFireRate
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7128114509534293746, guid: c617f50de3aa19140b79b93aa01bf238, type: 3}
+      propertyPath: projectileSpeed
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6039974067059951853, guid: c617f50de3aa19140b79b93aa01bf238, type: 3}

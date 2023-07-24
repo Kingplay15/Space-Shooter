@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dddda779efee9246af0f1aaeac47602, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 6
   paddingLeft: 0.5
   paddingRight: 0.5
   paddingTop: 5
@@ -210,7 +210,8 @@ MonoBehaviour:
   hitEffect: {fileID: 1889502533077999547, guid: f8269e4996a3e8743b2bd55afbeb41d2, type: 3}
   applyCameraShake: 1
   isPlayer: 1
-  score: 50
+  score: 100
+  hasPowerUpChance: 100
   powerUps: []
   isInvulnerable: 0
 --- !u!114 &4055225172586042365

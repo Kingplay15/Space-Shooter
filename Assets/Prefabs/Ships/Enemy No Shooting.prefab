@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1042870757527507854, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
       propertyPath: hasPowerUpChance
-      value: 20
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3944838736495503011, guid: 7993897f9c9afc7438d9d695c1c0022a, type: 3}
       propertyPath: m_RootOrder

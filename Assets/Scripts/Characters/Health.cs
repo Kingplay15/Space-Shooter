@@ -76,6 +76,7 @@ public class Health : MonoBehaviour
     public void ChangeHealth(int val)
     {
         health += val;
+        health = Mathf.Clamp(health, 0, startingHealth);
         isAtMaxHealth = health == startingHealth;
         OnHealthChangeEvent?.Invoke(this, EventArgs.Empty);
     }

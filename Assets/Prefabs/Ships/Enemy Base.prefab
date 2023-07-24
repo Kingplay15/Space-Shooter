@@ -188,10 +188,12 @@ MonoBehaviour:
   applyCameraShake: 0
   isPlayer: 0
   score: 50
+  hasPowerUpChance: 100
   powerUps:
   - {fileID: 722766649463302716, guid: 6c8ce3ffb17d8124d8a204c407c926d6, type: 3}
   - {fileID: 7160350716581086130, guid: 2a0157eff5807ee4c869f5ee4330130c, type: 3}
   - {fileID: 4386538499911049208, guid: c7561face1358ee449fe634720961562, type: 3}
+  - {fileID: 3228245788478505612, guid: d2ac9e37b7fe20445a27a42bb388ebff, type: 3}
   isInvulnerable: 0
 --- !u!114 &-5372782018791230267
 MonoBehaviour:
