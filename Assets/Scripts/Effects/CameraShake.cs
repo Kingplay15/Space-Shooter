@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
-    [SerializeField] float shakeDuration = 1f;
-    [SerializeField] float shakeMagnitude = 0.5f;
+    [SerializeField] private float shakeDuration = 1f;
+    [SerializeField] private float shakeMagnitude = 0.5f;
 
-    Vector3 initialPosition;
+    private Vector3 initialPosition;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         initialPosition = transform.position;
     }
@@ -20,7 +19,7 @@ public class CameraShake : MonoBehaviour
         StartCoroutine(Shake());
     }
 
-    IEnumerator Shake()
+    private IEnumerator Shake()
     {
         float elapsedTime = 0f;
         while (elapsedTime < shakeDuration) 

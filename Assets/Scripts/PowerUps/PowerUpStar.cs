@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUpStar : PowerUp
 {
-    Shield shield;
+    private Shield shield;
 
     protected override bool CheckPowerExist()
     {

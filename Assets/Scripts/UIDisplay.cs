@@ -8,22 +8,15 @@ using TMPro;
 public class UIDisplay : MonoBehaviour
 {
     [Header("Health")]
-    [SerializeField] Slider healthSlider;
-    [SerializeField] Health playerHealth;
+    [SerializeField] private Slider healthSlider;
+    [SerializeField] private Health playerHealth;
     [SerializeField] private TextMeshProUGUI healthText;
-    string maxHealthDisplay;
+    private string maxHealthDisplay;
 
     [Header("Score")]
-    [SerializeField] TextMeshProUGUI scoreText;
-    ScoreKeeper scoreKeeper;
+    [SerializeField] private TextMeshProUGUI scoreText;
 
-    void Awake()
-    {
-        scoreKeeper = FindObjectOfType<ScoreKeeper>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         healthSlider.maxValue = playerHealth.GetHealth();
         maxHealthDisplay = "/" + healthSlider.maxValue.ToString();
@@ -31,7 +24,7 @@ public class UIDisplay : MonoBehaviour
         healthText.text = healthSlider.value.ToString() + maxHealthDisplay;
         playerHealth.OnHealthChangeEvent += Health_Change;
 
-        scoreKeeper.OnScoreChangeEvent += Score_Change;
+        ScoreKeeper.instance.OnScoreChangeEvent += Score_Change;
     }
 
     private void Health_Change(object sender, EventArgs e)
@@ -43,6 +36,6 @@ public class UIDisplay : MonoBehaviour
 
     private void Score_Change(object sender, EventArgs e)
     {
-        scoreText.text = scoreKeeper.score.ToString("000000");
+        scoreText.text = ScoreKeeper.instance.score.ToString("000000");
     }
 }

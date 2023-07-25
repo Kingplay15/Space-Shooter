@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
-    Player player;
-    Health playerHealth;
-    [SerializeField] float shieldDuration = 5f;
+    private Player player;
+    private Health playerHealth;
+    [SerializeField] private float shieldDuration = 5f;
 
     private void OnEnable()
     {
@@ -15,7 +15,7 @@ public class Shield : MonoBehaviour
         StartCoroutine(EnableShield());
     }
 
-    IEnumerator EnableShield()
+    private IEnumerator EnableShield()
     {
         playerHealth.isInvulnerable = true;
         yield return new WaitForSeconds(shieldDuration);

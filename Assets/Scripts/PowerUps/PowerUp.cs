@@ -4,11 +4,11 @@ using UnityEngine;
 
 public abstract class PowerUp : MonoBehaviour
 {
-    [SerializeField] float droppingSpeed = 5f;
+    [SerializeField] private float droppingSpeed = 5f;
     [SerializeField] private float lifeTime = 10f;
     protected Player player;
-    ScoreKeeper scoreKepper;
-    [SerializeField] int score = 100;
+    private ScoreKeeper scoreKepper;
+    [SerializeField] private int score = 100;
 
     private void Awake()
     {
@@ -48,7 +48,6 @@ public abstract class PowerUp : MonoBehaviour
     private void AddScore() //Adding score instead of granting the power the player already had
     {
         scoreKepper.ModifyScore(score);
-        Debug.Log("Add score");
     }
 
     protected abstract bool CheckPowerExist();

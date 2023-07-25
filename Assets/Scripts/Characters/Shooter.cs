@@ -15,29 +15,29 @@ public class Shooter : MonoBehaviour
     }
 
     [Header("General")]
-    [SerializeField] GameObject[] projectilePrefabs;
-    float projectileSpeed = 10f;
-    float projectileLifetime = 5f;
+    [SerializeField] private GameObject[] projectilePrefabs;
+    private float projectileSpeed = 10f;
+    private float projectileLifetime = 5f;
 
     [Header("AI")]
-    [SerializeField] bool useAI = false;
-    [SerializeField] Weapon aIWeapon;
+    [SerializeField] private bool useAI = false;
+    [SerializeField] private Weapon aIWeapon;
 
 
     [Header("Player")]
-    [SerializeField] float machineGunPaddingLeft = -0.5f;
-    [SerializeField] float machineGunPaddingRight = 0.5f;
-    float baseFireRate = 0.2f;
-    float fireRateVariance = 0f;
-    float minFireRate = 0.1f;
-    Coroutine fireCoroutine;
+    [SerializeField] private float machineGunPaddingLeft = -0.5f;
+    [SerializeField] private float machineGunPaddingRight = 0.5f;
+    private float baseFireRate = 0.2f;
+    private float fireRateVariance = 0f;
+    private float minFireRate = 0.1f;
+    private Coroutine fireCoroutine;
     [HideInInspector] public bool isFiring = false;
-    float timeToNextFire = 0f;
+    private float timeToNextFire = 0f;
 
-    AudioPlayer audioPlayer;
-    Player player;
+    private AudioPlayer audioPlayer;
+    private Player player;
 
-    void Awake()
+    private void Awake()
     {
         audioPlayer = FindObjectOfType<AudioPlayer>();
         if (useAI)
@@ -45,14 +45,7 @@ public class Shooter : MonoBehaviour
         else player = GetComponent<Player>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         //The enemies are not allowed to shoot offscreen
         if (useAI)
@@ -83,7 +76,7 @@ public class Shooter : MonoBehaviour
             gameObject.transform.position.y < GeneralData.minBound.y || gameObject.transform.position.y > GeneralData.maxBound.y);
     }
 
-    void Fire()
+    private void Fire()
     {
         if (isFiring == true && fireCoroutine == null && timeToNextFire == 0f)
         {
@@ -170,7 +163,7 @@ public class Shooter : MonoBehaviour
         return nextFire;
     }
 
-    IEnumerator ShootNormal()
+    private IEnumerator ShootNormal()
     {
         while (true)
         {
@@ -185,7 +178,7 @@ public class Shooter : MonoBehaviour
         }
     }
 
-    IEnumerator ShootShotgun()
+    private IEnumerator ShootShotgun()
     {
         while (true)
         {
@@ -223,7 +216,7 @@ public class Shooter : MonoBehaviour
         }
     }
 
-    IEnumerator ShootMachineGun()
+    private IEnumerator ShootMachineGun()
     {
         while (true)
         {

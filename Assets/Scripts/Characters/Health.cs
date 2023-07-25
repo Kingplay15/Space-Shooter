@@ -6,34 +6,32 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [Header("General")]
-    [SerializeField] int health = 50;
+    [SerializeField] private int health = 50;
     private int startingHealth = 50;
     public bool isAtMaxHealth { get; private set; } = true;
     public EventHandler OnHealthChangeEvent;
 
     public int GetHealth() => health;
-    [SerializeField] ParticleSystem hitEffect;
-    [SerializeField] bool applyCameraShake = false;
+    [SerializeField] private ParticleSystem hitEffect;
+    [SerializeField] private bool applyCameraShake = false;
 
-    CameraShake cameraShake;
-    AudioPlayer audioPlayer;
-    LevelManager levelManager;
+    private CameraShake cameraShake;
+    private AudioPlayer audioPlayer;
+    private LevelManager levelManager;
 
     [Header("Enemy")]
     [SerializeField] private bool isPlayer = false;
     [SerializeField] private int score = 50;
     [SerializeField] private int hasPowerUpChance = 100;
-    ScoreKeeper scoreKeeper;
-    [SerializeField] GameObject[] powerUps;
+    [SerializeField] private GameObject[] powerUps;
     public static EventHandler OnDeathEvent;
 
     [HideInInspector] public bool isInvulnerable = false;
 
-    void Awake()
+    private void Awake()
     {
         cameraShake = Camera.main.GetComponent<CameraShake>();
         audioPlayer = FindObjectOfType<AudioPlayer>();
-        scoreKeeper = FindObjectOfType<ScoreKeeper>();
         levelManager = FindObjectOfType<LevelManager>();
     }
 
@@ -42,7 +40,7 @@ public class Health : MonoBehaviour
         startingHealth = GetHealth();
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         DamageDealer damageDealer = collision.GetComponent<DamageDealer>();
 
@@ -63,7 +61,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    private void TakeDamage(int damage)
     {
         if (isInvulnerable == false)
             ChangeHealth(-damage);
@@ -81,12 +79,12 @@ public class Health : MonoBehaviour
         OnHealthChangeEvent?.Invoke(this, EventArgs.Empty);
     }
 
-    void Die()
+    private void Die()
     {
         if (isPlayer == false) //If this is an enemy
         {
             SpawnPowerUp();
-            scoreKeeper.ModifyScore(score);
+            ScoreKeeper.instance.ModifyScore(score);
             OnDeathEvent?.Invoke(this, EventArgs.Empty);
         }
 
@@ -112,7 +110,7 @@ public class Health : MonoBehaviour
             rb.velocity = transform.up * powerUp.GetComponent<PowerUp>().GetDroppingSpeed();
     }
 
-    void PlayHitEffect()
+    private void PlayHitEffect()
     {
         if (hitEffect != null)
         {
@@ -121,18 +119,18 @@ public class Health : MonoBehaviour
         }
     }
 
-    void ShakeCamera()
+    private void ShakeCamera()
     {
         if (cameraShake != null && applyCameraShake == true)
             cameraShake.Play();
     }
 
-    void PlayGetHitSound()
+    private void PlayGetHitSound()
     {
         audioPlayer.PlayGetHitClip();
     }
 
-    void PlayPowerUpSound()
+    private void PlayPowerUpSound()
     {
         audioPlayer.PlayPowerUpClip();
     }

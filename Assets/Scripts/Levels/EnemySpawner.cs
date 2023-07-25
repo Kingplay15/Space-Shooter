@@ -5,25 +5,23 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] List<WaveConfig> waveConfigs;
-    WaveConfig currentWave;
+    [SerializeField] private List<WaveConfig> waveConfigs;
+    private WaveConfig currentWave;
     public WaveConfig GetCurrentWave() => currentWave;
     private GameObject currentWaveLastShip = null;
     private Transform currentWaveLastWaypoint = null;
     private bool currentWaveEnds = false;
 
-    [SerializeField] bool isLooping = false;
+    [SerializeField] private bool isLooping = false;
     [SerializeField] private int startWaveIndex = 0;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         StartCoroutine(SpawnEnemyWaves());
         Health.OnDeathEvent += Health_OnDeath;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         //Checking if the current wave's last ship reachs the end
         if (currentWaveLastShip != null)
@@ -41,7 +39,7 @@ public class EnemySpawner : MonoBehaviour
         currentWaveEnds = true;
     }
 
-    IEnumerator SpawnEnemyWaves()
+    private IEnumerator SpawnEnemyWaves()
     {
         do
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUpShotgun : PowerUp
 {
-    Shooter shooterPlayer;
+    private Shooter shooterPlayer;
     protected override bool CheckPowerExist()
     {
         return player.equippedWeapon == Shooter.Weapon.Shotgun;

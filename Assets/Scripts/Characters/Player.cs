@@ -5,44 +5,34 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] float speed = 5f;
-    Vector2 rawInput;
+    [SerializeField] private float speed = 5f;
+    private Vector2 rawInput;
 
-    [SerializeField] float paddingLeft;
-    [SerializeField] float paddingRight;
-    [SerializeField] float paddingTop;
-    [SerializeField] float paddingBottom;
+    [SerializeField] private float paddingLeft;
+    [SerializeField] private float paddingRight;
+    [SerializeField] private float paddingTop;
+    [SerializeField] private float paddingBottom;
 
 
-    Shooter shooter;
+    private Shooter shooter;
     public Shooter.Weapon equippedWeapon { get; set; } = Shooter.Weapon.Normal;
 
     public bool haveShield { get; set; } = false;
 
-    [SerializeField] Shield shield;
-    public Shield GetShield()
-    {
-        return shield;
-    }
+    [SerializeField] private Shield shield;
+    public Shield GetShield() => shield;
 
-    void Awake()
+    private void Awake()
     {
         shooter = GetComponent<Shooter>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
         Move();
     }
 
-    void Move()
+    private void Move()
     {
         Vector2 delta = rawInput * speed * Time.deltaTime;
         Vector2 newPos = new Vector2();
@@ -53,12 +43,12 @@ public class Player : MonoBehaviour
         transform.position = newPos;
     }
 
-    void OnMove(InputValue value)
+    private void OnMove(InputValue value)
     {
         rawInput = value.Get<Vector2>();
     }
 
-    void OnFire(InputValue value)
+    private void OnFire(InputValue value)
     {
         if (shooter != null)
             shooter.isFiring = value.isPressed;

@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] float sceneLoadDelay = 2f;
+    [SerializeField] private float sceneLoadDelay = 2f;
 
     public void LoadGame()
     {
+        if (ScoreKeeper.instance != null)
+            ScoreKeeper.instance.ResetScore();
         SceneManager.LoadScene("Game");
     }
 
@@ -19,6 +21,8 @@ public class LevelManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        if (ScoreKeeper.instance != null)
+            ScoreKeeper.instance.ResetScore();
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -27,7 +31,7 @@ public class LevelManager : MonoBehaviour
         Application.Quit();
     }
 
-    IEnumerator WaitAndLoad(string scene, float delay)
+    private IEnumerator WaitAndLoad(string scene, float delay)
     {
         yield return new WaitForSeconds(delay);
         SceneManager.LoadScene(scene);
